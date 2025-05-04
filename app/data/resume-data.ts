@@ -69,7 +69,7 @@ export const RESUME_DATA = {
       company: "Reliance Jio",
       position: "Software Development Engineer",
       logo: "https://assets.entrepreneur.com/content/3x2/2000/1591627848-14191995-545238552267917-191570681028470982-n.png",
-      location: "Tangier, Morocco",
+      location: "Navi Mumbai, Maharastra",
       startDate: "July 2023",
       endDate: "Present",
       description:
