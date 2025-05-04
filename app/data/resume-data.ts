@@ -10,7 +10,7 @@ export const RESUME_DATA = {
   location: "Navi Mumbai",
 
   about:
-    "Driven and adaptable software developer with a strong foundation in full-stack development (MERN & Java Spring Boot) and a passion for building scalable, real-world applications. Experienced in delivering diverse projects. Skilled in modern web technologies (React, Node.js, MongoDB, Express), core programming languages (C, C++, Java), and backend infrastructure, including multithreading, file handling, and networking. Actively exploring applied AI engineering and machine learning, with an eye toward research and publication. Strong understanding of software design principles and committed to mastering system design to build high-performance, production-ready applications. Known for problem-solving skills, a growth mindset, and a deep commitment to delivering high-quality, user-focused solutions.",
+    "Full-stack developer (MERN & Java Spring Boot) with a strong grasp of scalable systems, backend infrastructure, and modern web tech. Exploring applied AI/ML with a focus on research. Committed to clean design, system architecture, and delivering impactful, user-focused solutions.",
   summary:
     "As a software Developer with a background in computer systems, algorithms, and data structures, I have more than two years of experience working as Software Engineer for Reliance Jio. I am currently pursuing my interests in AI and LLMs. Coding and problem-solving through code are my passions, and I am excited to collaborate with talented programmers and expand my knowledge even more!",
   avatarUrl: "./me2.png",
