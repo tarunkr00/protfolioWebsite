@@ -1,9 +1,14 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDownIcon, DownloadIcon, GithubIcon, LinkedinIcon, MailIcon } from 'lucide-react';
-
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  ArrowDownIcon,
+  DownloadIcon,
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+} from "lucide-react";
 
 interface HeroProps {
   data: {
@@ -21,19 +26,51 @@ interface HeroProps {
   };
 }
 
-// Simple typewriter effect
-const useTypewriter = (text: string, speed: number = 100) => {
-  const [displayText, setDisplayText] = useState('');
+// Typing effect for rotating titles
+const useRotatingTypewriter = (titles: string[], speed = 30, pause = 1500) => {
+  const [index, setIndex] = useState(0); // current titl3 index
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = titles[index % titles.length];
+    let typeSpeed = isDeleting ? speed / 2 : speed;
+
+    const timeout = setTimeout(() => {
+      setText((prev) =>
+        isDeleting
+          ? current.substring(0, prev.length - 1)
+          : current.substring(0, prev.length + 1)
+      );
+
+      // Transition to deleting or next word
+      if (!isDeleting && text === current) {
+        setTimeout(() => setIsDeleting(true), pause);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % titles.length);
+      }
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, index, titles, speed, pause]);
+
+  return text;
+};
+
+// Typing effect for about paragraph
+const useTypewriter = (text: string, speed = 30) => {
+  const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
+        setDisplayText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
       }, speed);
-      
+
       return () => clearTimeout(timeout);
     } else {
       setIsDone(true);
@@ -44,8 +81,15 @@ const useTypewriter = (text: string, speed: number = 100) => {
 };
 
 const HeroSection: React.FC<HeroProps> = ({ data }) => {
+  const rotatingTitle = useRotatingTypewriter([
+    "Software Engineer",
+    "Learner",
+    "Open Source Contributor",
+    "Tech Enthusiast",
+  ]);
+
   const { displayText, isDone } = useTypewriter(data.about, 30);
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -53,27 +97,27 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.3,
-      }
-    }
+      },
+    },
   };
-  
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { 
+      transition: {
         type: "spring",
-        stiffness: 100
-      }
-    }
+        stiffness: 100,
+      },
+    },
   };
-  
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 py-20 md:py-32 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 -z-20" />
-      
+
       {/* Animated particles - Add pointer-events-none to prevent blocking clicks */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {Array.from({ length: 20 }).map((_, i) => (
@@ -99,41 +143,47 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
           />
         ))}
       </div>
-      
+
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left content */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-7/12 text-center md:text-left"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
               variants={itemVariants}
             >
-              Hello, I&apos;m <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary inline-block">{data.name}</span>
+              Hello, I&apos;m{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary inline-block">
+                {data.name}
+              </span>
             </motion.h1>
-            
-            <motion.h2 
-              className="text-xl md:text-2xl lg:text-3xl font-medium mb-6 text-gray-600 dark:text-gray-300"
+
+            <motion.h2
+              className="text-xl md:text-2xl lg:text-3xl font-medium mb-6 text-gray-600 dark:text-gray-300 min-h-[40px]"
               variants={itemVariants}
             >
-              Software Developer
+              {rotatingTitle}
+              <span className="inline-block w-1 h-5 ml-1 bg-primary animate-pulse align-middle"></span>
             </motion.h2>
-            
-            <motion.div 
+
+            <motion.div
               className="mb-8 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-xl"
               variants={itemVariants}
             >
               <p className="min-h-[100px]">
                 {displayText}
-                {!isDone && <span className="inline-block w-1 h-6 ml-1 bg-primary animate-pulse"></span>}
+                {!isDone && (
+                  <span className="inline-block w-1 h-6 ml-1 bg-primary animate-pulse"></span>
+                )}
               </p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-wrap gap-4 justify-center md:justify-start"
               variants={itemVariants}
             >
@@ -146,7 +196,7 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
                 <MailIcon className="w-4 h-4" />
                 Contact Me
               </motion.a>
-              
+
               <motion.a
                 href="/resume.pdf"
                 target="_blank"
@@ -159,8 +209,8 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
                 Resume
               </motion.a>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="mt-8 flex gap-4 justify-center md:justify-start"
               variants={itemVariants}
             >
@@ -179,9 +229,9 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
               ))}
             </motion.div>
           </motion.div>
-          
+
           {/* Right content - Avatar */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-5/12"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -189,25 +239,25 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
           >
             <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-20 blur-xl animate-pulse" />
-              <motion.div 
+              <motion.div
                 className="relative w-full h-full rounded-full p-2 bg-gradient-to-br from-primary to-secondary"
                 animate={{
                   boxShadow: [
-                    '0 0 20px rgba(59, 130, 246, 0.3)',
-                    '0 0 30px rgba(59, 130, 246, 0.5)',
-                    '0 0 20px rgba(59, 130, 246, 0.3)',
+                    "0 0 20px rgba(59, 130, 246, 0.3)",
+                    "0 0 30px rgba(59, 130, 246, 0.5)",
+                    "0 0 20px rgba(59, 130, 246, 0.3)",
                   ],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  repeatType: 'reverse',
+                  repeatType: "reverse",
                 }}
               >
                 <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-background-dark p-1">
-                  <img 
-                    src={data.avatarUrl} 
-                    alt={data.name} 
+                  <img
+                    src={data.avatarUrl}
+                    alt={data.name}
                     className="w-full h-full rounded-full object-cover"
                   />
                 </div>
@@ -216,15 +266,15 @@ const HeroSection: React.FC<HeroProps> = ({ data }) => {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scroll down indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-4 transform -translate-x-1/2 flex flex-col items-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        <motion.span 
+        <motion.span
           className="text-sm mb-2 opacity-60"
           animate={{ y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

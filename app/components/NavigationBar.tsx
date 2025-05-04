@@ -19,7 +19,6 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ activeSection }) => {
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
     { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
   ];
@@ -45,7 +44,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ activeSection }) => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 transition-all duration-300 ${
+      className={`fixed pt-3 top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 transition-all duration-300 ${
         isScrolled
           ? "bg-white/80 dark:bg-background-dark/80 shadow-md backdrop-blur-md"
           : "bg-transparent"
@@ -66,13 +65,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ activeSection }) => {
           }}
         >
           <div className="flex items-center">
-            <img
-              src="./ucefLogo.png"
-              alt="Logo"
-              className="h-14 w-14"
-            />
             <span className="gradient-text bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              Youssef
+              Tarun Khanna
             </span>
           </div>
         </motion.a>

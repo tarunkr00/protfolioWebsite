@@ -123,33 +123,32 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="mailto:ucefsahih@gmail.com"
+                  href="mailto:tarkr813@gmail.com"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                 >
-                  ucefsahih@gmail.com
+                  tarkr813@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+212708978739"
+                  href="tel:+91 8178487772"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors"
                 >
-                  +212 708 978 739
+                  +91 8178487772
                 </a>
               </li>
-              <li className="text-gray-600 dark:text-gray-400">Morocco</li>
+              <li className="text-gray-600 dark:text-gray-400">Navi Mumbai</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Youssef Sahih. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Tarun Khanna. All rights reserved.
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">
             Designed & Built with <span className="text-red-500">♥</span> by
-            Youssef Sahih
+            Tarun Khanna
           </p>
         </div>
       </div>

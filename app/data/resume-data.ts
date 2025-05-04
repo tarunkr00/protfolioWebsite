@@ -1,52 +1,51 @@
-import { GitHubIcon, LinkedInIcon, XIcon } from "../components/icons";
+import {
+  GitHubIcon,
+  LeetCodeIcon,
+  LinkedInIcon,
+  XIcon,
+} from "../components/icons";
 
 export const RESUME_DATA = {
-  name: "Youssef Sahih",
-  location: "Morocco",
+  name: "Tarun Khanna",
+  location: "Navi Mumbai",
 
   about:
-    "Motivated software developer with a strong track record of successfully completing various projects. Proficient in various programming languages and technologies, including C, C++, and web development technologies (HTML, CSS, JavaScript). Skilled in areas such as file handling, multithreading, game development, virtualization, and networking. Strong problem-solving abilities and a solid understanding of software development principles. Committed to continuous learning and delivering high-quality solutions. Ready to contribute expertise to new challenges.",
+    "Driven and adaptable software developer with a strong foundation in full-stack development (MERN & Java Spring Boot) and a passion for building scalable, real-world applications. Experienced in delivering diverse projects. Skilled in modern web technologies (React, Node.js, MongoDB, Express), core programming languages (C, C++, Java), and backend infrastructure, including multithreading, file handling, and networking. Actively exploring applied AI engineering and machine learning, with an eye toward research and publication. Strong understanding of software design principles and committed to mastering system design to build high-performance, production-ready applications. Known for problem-solving skills, a growth mindset, and a deep commitment to delivering high-quality, user-focused solutions.",
   summary:
-    "As a software Developer with a background in computer systems, algorithms, and data structures, I have two years of experience in IT and two years of English studies under my belt. I am currently furthering my education in the 42 network for a Master Digital IT Architect degree. Coding and problem-solving through code are my passions, and I am excited to collaborate with talented programmers and expand my knowledge even more!",
-  avatarUrl: "./ysahih.png",
+    "As a software Developer with a background in computer systems, algorithms, and data structures, I have more than two years of experience working as Software Engineer for Reliance Jio. I am currently pursuing my interests in AI and LLMs. Coding and problem-solving through code are my passions, and I am excited to collaborate with talented programmers and expand my knowledge even more!",
+  avatarUrl: "./me2.png",
 
   contact: {
-    email: "ucefsahih@gmail.com",
-    tel: "+212708978739",
+    email: "tarkr813@gmail.com",
+    tel: "+91 817848772",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/ysahih",
+        url: "https://github.com/tarkr813",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/youssef-sahih/",
+        url: "https://www.linkedin.com/in/tarun-khanna-419648192/",
         icon: LinkedInIcon,
       },
       {
-        name: "X",
-        url: "https://x.com/uc3f02",
-        icon: XIcon,
+        name: "Leetcode",
+        url: "https://leetcode.com/u/tarkr813/",
+        icon: LeetCodeIcon,
       },
     ],
   },
   education: [
     {
-      school: "Université Chouaïb Doukkali",
-      degree: "Associate's Degree in English Studies.",
-      start: "2020",
-      end: "2022",
-    },
-    {
-      school: "1337 - (42 network)",
-      degree: "Master's Degree in IT Architecture.",
-      start: "2022",
-      end: "present",
+      school: "Indraprastha Institute of Information Technology",
+      degree: "Bachelors of Technology.",
+      start: "2019",
+      end: "2023",
     },
   ],
   skills: [
-    "C",
+    "Java",
     "C++",
     "Html",
     "Tailwind Css",
@@ -54,110 +53,45 @@ export const RESUME_DATA = {
     "TypeScript",
     "React",
     "Redux",
+    "Recoil",
     "Node.js/Next.js",
+    "Java Spring Boot",
     "Docker",
     "Git",
-    "Jira",
+    "Azure",
     "Agile/Scrum",
   ],
 
-  projects: [
-    {
-      title: "Pongy",
-      techStack: ["Next.js", "React", "TypeScript"],
-      description:
-        "Pong contest website with real-time multiplayer games, chat, and security",
-      link: {
-        label: "github.com/ysahih",
-        href: "https://github.com/ysahih/PingPong",
-      },
-    },
-    {
-      title: "Wordle-Game clone",
-      techStack: ["Html", "Css", "JavaScript"],
-      description: "a simple clone of the famous wordle game",
-
-      link: {
-        label: "github.com",
-        href: "https://github.com/ysahih/blog",
-      },
-    },
-    {
-      title: "Inception",
-      techStack: ["Docker", "Nginx", "mariaDb", "Wordpress"],
-      description:
-        "Created a Docker-based multi-container infrastructure with Nginx, WordPress, and MariaDB for a web application.",
-      link: {
-        label: "github.com",
-        href: "https://github.com/ysahih/inception",
-      },
-    },
-    {
-      title: "IRC",
-      techStack: ["C++", "Socket Programming"],
-      description:
-        "Internet Relay Chat server (Communication protocol on the Internet)",
-      link: {
-        label: "github.com",
-        href: "https://github.com/ysahih/IRC",
-      },
-    },
-    {
-      title: "cub3D",
-      techStack: ["C", "Graphics"],
-      description:
-        "My first RayCaster with miniLibX. This project is inspired by the world-famous Wolfenstein 3D game.",
-      link: {
-        label: "github.com",
-        href: "https://github.com/ysahih/cub3D",
-      },
-    },
-    {
-      title: "sash",
-      techStack: ["C", "Software Design and Architecture"],
-      description: "simple implementation of Unix Shell with C",
-      link: {
-        label: "github.com",
-        href: "https://github.com/ysahih/Sash",
-      },
-    },
-  ],
+  projects: [],
 
   experience: [
     {
-      company: "Im'enSe",
-      position: "Frontend Developer",
-      logo: 'https://media.licdn.com/dms/image/v2/C4E0BAQGwBEMaD6MB4Q/company-logo_200_200/company-logo_200_200/0/1670258446221?e=1749686400&v=beta&t=ke4p83O45mws8hx8rE5qkaD8KH5-aI1hPa6gesmqx_U',
+      company: "Reliance Jio",
+      position: "Software Development Engineer",
+      logo: "https://assets.entrepreneur.com/content/3x2/2000/1591627848-14191995-545238552267917-191570681028470982-n.png",
       location: "Tangier, Morocco",
-      startDate: "Aug 2024",
+      startDate: "July 2023",
       endDate: "Present",
       description:
-        "Working on front-end development projects for clients in the QHSE sector, focusing on secure, scalable web applications.",
+        "Working as software developer with hands-on experience in building scalable web applications using the MERN stack (MongoDB, Express.js, React, Node.js) and Java Spring Boot. I specialize in designing and developing complete systems—from frontend interfaces to backend APIs—with a strong focus on performance, clean architecture, and real-world usability.",
       skills: [
         "React",
         "TypeScript",
         "Redux",
         "Node.js",
-        "Jira",
+        "Azure",
         "Agile",
         "Git",
         "CI/CD",
+        "Docker",
+        "Redis",
         "REST APIs",
       ],
       achievements: [
-        "Collaborated with cross-functional teams to deliver projects on time",
-        "Contributed to the development of a secure authentication system",
-        "Conducted code reviews and provided constructive feedback to peers",
-        "Participated in the design and architecture of a new web application",
-        "Worked closely with UX/UI designers to implement user-friendly interfaces",
-        "Contributed to the development of a reusable component library",
-        "Participated in the migration of a legacy application to a modern tech stack",
-        "Worked on a project that reduced page load time by 50%",
-        "Participated in the development of a web application that supports multiple languages",
-        "Worked on a project that improved accessibility for users with disabilities",
-        "Worked on a project that improved SEO performance by 30%",
-        "Participated in the development of a web application that integrates with third-party APIs",
-        "Worked on a project that improved data visualization for users",
+        "Implemented new SDLC  methodologies in the team",
+        "Successfully delivered on client deadlines and worked as On-Call Engineer to provide support and guidance",
+        "Led a team in refactoring and modernizing legacy codebases, aligning them with current architectural standards and best practices—resulting in improved maintainability, scalability, and performance.",
+        "Led the charge in implementing comprehensive testing suites for in-house services, improving test coverage, catching regressions early, and fostering a culture of quality-first development.",
       ],
     },
   ],
